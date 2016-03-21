@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sionic.js DEMO</title>
+</head>
+<body>
+    <div>
+        <textarea class="player__mml" cols="30" rows="10">t200l8 @6 @w60 v15o4 cde8</textarea>
+    </div>
+    <div>
+        <button class="player__start">Play</button>
+        <button class="player__stop">Stop</button>
+    </div>
+    
+    
+	<script src="./pico.min.js"></script>
+	<script src="../dist/sionic.js"></script>
+    <script>
+        function init(){
+            var textarea = document.querySelector(".player__mml");
+            var startButton = document.querySelector(".player__start");
+            var stopButton = document.querySelector(".player__stop");
+            
+            startButton.addEventListener("click", function(){
+                var mml = textarea.value;
+                Pico.pause();
+                Pico.play(Sionic(mml));
+            })
+            stopButton.addEventListener("click", function(){
+                var mml = textarea.value;
+                Pico.pause();
+            })
+            
+        }
+        
+        
+        init();
+        
+        
+        
+    </script>
+</body>
+</html>
