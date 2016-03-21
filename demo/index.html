@@ -3,14 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sionic.js DEMO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sanitize.css/2.0.0/sanitize.min.css">
+    <style>
+        textarea{
+            width: 100%;
+            height: 30rem;
+            font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+        }
+        .container{
+            margin: 3rem;
+        }
+        button{
+            padding: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <textarea class="player__mml" cols="30" rows="10">t200l8 @6 @w60 v15o4 cde8</textarea>
-    </div>
-    <div>
-        <button class="player__start">Play</button>
-        <button class="player__stop">Stop</button>
+    <div class="container">
+        <div>
+            <textarea class="player__mml" cols="30" rows="10">/* from MML-chord-generator ♪CM7 Dm7 Em7 FM7 G6 Am7♪*/#OPM@0 { 5, 1, 26, 7, 9, 3, 10, 20, 1, 2, 2, 0, 0, 24, 9, 9, 3, 15, 0, 2, 3, 3, 0, 0, 22, 8, 6, 5, 12, 0, 1, 2, 5, 0, 0, 20, 7, 11, 5, 14, 0, 0, 1, 4, 0, 0, };t100;%6 @0 l2 v8o4co3do3eo3fo3go3a;%6 @0 l2 v8r48o5co5do5do5eo5do5e;%6 @0 l2 v8r48r48o5eo5fo5eo5fo5eo5g;%6 @0 l2 v8r48r48r48o5go5ao5go5ao5go5a;%6 @0 l2 v8r48r48r48r48o5bo6co5bo6co5bo6c</textarea>
+        </div>
+        <div>
+            <button class="player__start">Play</button>
+            <button class="player__stop">Stop</button>
+        </div>
+        
     </div>
     
     
