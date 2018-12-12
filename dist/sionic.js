@@ -387,10 +387,10 @@ function Sionic(mmldata) {
                     this.octave = cmd.val;
                     break;
                 case "<":
-                    this.octave += 1;
+                    this.octave -= 1;
                     break;
                 case ">":
-                    this.octave -= 1;
+                    this.octave += 1;
                     break;
                 case "&":
                     this.tie = true;
