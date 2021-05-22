@@ -297,6 +297,7 @@ function Sionic(mmldata) {
             this.tempo = 120;
             this.len = 4;
             this.octave = 5;
+            this.keyTranspose = 0;
             this.tie = false;
             this.curFreq = 0;
             this.index = -1;
@@ -386,6 +387,9 @@ function Sionic(mmldata) {
                 case "o":
                     this.octave = cmd.val;
                     break;
+                case "kt":
+                    this.keyTranspose = cmd.val;
+                    break;
                 case "<":
                     this.octave += 1;
                     break;
@@ -428,7 +432,7 @@ function Sionic(mmldata) {
                     this.samples += ((60 / this.tempo) * (4 / len) * this.sampleRate) | 0;
                     this.samples *= [1, 1.5, 1.75][cmd.dot] || 1;
 
-                    var freq = (cmd.name === "rest") ? 0 : midicps(cmd.tone + this.octave * 12);
+                    var freq = (cmd.name === "rest") ? 0 : midicps(cmd.tone + this.octave * 12 + this.keyTranspose);
 
                     if (this.curFreq !== freq) {
                         this.tie = false;
@@ -523,6 +527,18 @@ function Sionic(mmldata) {
             re: /@(\d*)/g,
             func: function(m) {
                 return { name: "@", val: toInt(m[1]) };
+            }
+        },
+        {
+            re: /kt\-(\d*)/g,
+            func: function(m) {
+                return { name: "kt", val: - toInt(m[1]) };
+            }
+        },
+        {
+            re: /kt(\d*)/g,
+            func: function(m) {
+                return { name: "kt", val: toInt(m[1]) };
             }
         },
         {
